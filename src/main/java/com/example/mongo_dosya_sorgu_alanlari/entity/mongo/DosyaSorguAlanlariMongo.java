@@ -2,16 +2,34 @@ package com.example.mongo_dosya_sorgu_alanlari.entity.mongo;
 
 import jakarta.persistence.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document
 public class DosyaSorguAlanlariMongo {
     @Id
     private Long id;
+    @Field
     private String kimlikNumarasi;
+    @Field
     private String pasaportNumarasi;
+    @Field
     private String vkn;
+    @Field
     private String evTel;
+    @Field
     private String ilKodu;
+
+    public DosyaSorguAlanlariMongo() {
+    }
+
+    public DosyaSorguAlanlariMongo(Long id, String kimlikNumarasi, String pasaportNumarasi, String vkn, String evTel, String ilKodu) {
+        this.id = id;
+        this.kimlikNumarasi = kimlikNumarasi;
+        this.pasaportNumarasi = pasaportNumarasi;
+        this.vkn = vkn;
+        this.evTel = evTel;
+        this.ilKodu = ilKodu;
+    }
 
     public Long getId() {
         return id;

@@ -1,7 +1,9 @@
 package com.example.mongo_dosya_sorgu_alanlari;
 
 import com.example.mongo_dosya_sorgu_alanlari.entity.DosyaSorguAlanlari;
+import com.example.mongo_dosya_sorgu_alanlari.entity.mongo.DosyaSorguAlanlariMongo;
 import com.example.mongo_dosya_sorgu_alanlari.repository.IDosyaSorguAlanlariRepository;
+import com.example.mongo_dosya_sorgu_alanlari.repository.mongo.IDosyaSorguAlanlariMongoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,6 +17,9 @@ public class MongoDosyaSorguAlanlariApplication implements CommandLineRunner {
 
     @Autowired
     IDosyaSorguAlanlariRepository dosyaSorguAlanlariRepository;
+
+    @Autowired
+    IDosyaSorguAlanlariMongoRepository mongoRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(MongoDosyaSorguAlanlariApplication.class, args);
@@ -48,5 +53,7 @@ public class MongoDosyaSorguAlanlariApplication implements CommandLineRunner {
             dosyaSorguAlanlariRepository.save(dosyaSorguAlanlari);
         });
 
+        DosyaSorguAlanlariMongo mongoObject = new DosyaSorguAlanlariMongo(3214L, "16034012339", "124214", "1515215124", "1241245142", "063");
+        mongoRepository.save(mongoObject);
     }
 }
